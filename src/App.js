@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 // import logo from './logo.svg'
 import './App.css'
 
-import './css/weather-icons-wind.min.css'
-import './css/weather-icons.min.css'
+// import './css/weather-icons-wind.min.css'
+// import './css/weather-icons.min.css'
 
 import Header from './containers/Header/Header'
 import Body from './containers/Body/Body'

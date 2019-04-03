@@ -13,7 +13,7 @@ export default class Local extends Component {
 			info: null
 		}
 	}
-
+/* 
 	componentDidMount() {
 		axios.get('data/2.5/forecast?id=' + this.props.id + '&APPID=' + APPID)
 		.then(response => {
@@ -32,13 +32,15 @@ export default class Local extends Component {
 			})
 		})
 	}
-
+ */
 
   render() {
 	return (
 	  <div>
 		<p>Info</p>
 		<p>Cidade: {this.props.name}</p>
+		<img src={"http://openweathermap.org/img/w/" + this.props.icon + ".png"} />
+		{/* <i className={"wi wi-owm-" + this.props.iconId}></i> */}
 	  </div>
 	)
   }
