@@ -1,0 +1,42 @@
+.button {
+	border: 0;
+	border-radius: 16px;
+	margin: 8px 32px;
+}
+
+.button:hover {
+	cursor: pointer;
+}
+
+.button:focus {
+	outline: 0;
+}
+
+.button:active { 
+	 transform: scale(0.95) 
+}
+
+.button.tiny {
+	background-color: #fbed63;
+	border-right: 2px solid #f6e00d;
+	border-bottom: 2px solid #f6e00d;
+	padding: 6px 12px;
+}
+
+.button.tiny:focus {
+	background-color: #f6e00d;
+}
+
+.button.medium {
+	background-color: #8fe0ff;
+	border-right: 2px solid #75b4e3;
+	border-bottom: 2px solid #75b4e3;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 16px;
+}
+
+.button.medium:focus {
+	background-color: #75b4e3;
+}
+

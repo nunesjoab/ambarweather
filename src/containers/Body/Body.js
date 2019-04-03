@@ -17,10 +17,10 @@ export default class Screen extends Component {
 		}
 	}
 
-	getLocalProperties = (id) => {
+	getLocalProperties = (id, local) => {
 		axios.get('data/2.5/forecast?id=' + id + '&APPID=' + APPID)
 		.then(response => {
-			console.log(response.data)
+			// console.log(response.data)
 			const conditions = response.data.list.map((element, index) => {
 				return {
 					...element
@@ -31,11 +31,12 @@ export default class Screen extends Component {
 
 			this.setState({
 				conditions,
-				info
+				info,
+				local
 			})
 		})
 	}
-
+/* 
 	setLocalAttributes = (id, name) => {
 		const local = {
 			'id' : id,
@@ -45,20 +46,37 @@ export default class Screen extends Component {
 		this.setState({
 			local
 		})
-	}
+	} */
 
    render() {
 	return (
 	  	<div>
 			  
-			<button onClick={() => this.getLocalProperties('3451234')}>Rio Claro</button>
-			<button onClick={() => this.getLocalProperties('3449319')}>São Carlos</button>
-			<button onClick={() => this.getLocalProperties('3457509')}>Matão</button>
+			<button
+				className="button tiny"
+				onClick={() => this.getLocalProperties('3451234', 'Rio Claro')}
+			>
+				Rio Claro
+			</button>
+			
+			<button
+				className="button tiny"
+				onClick={() => this.getLocalProperties('3449319', 'São Carlos')}
+			>
+				São Carlos
+			</button>
+			
+			<button
+				className="button tiny"
+				onClick={() => this.getLocalProperties('3457509', 'Matão')}
+			>
+				Matão
+			</button>
 
 			{
 			this.state.conditions ?
 			<Local
-				name={this.state.info['name']}
+				name={this.state.local}
 				id={this.state.info['id']}
 				date={this.state.conditions[0].dt_txt}
 				temp={this.state.conditions[0].main.temp}
@@ -69,8 +87,18 @@ export default class Screen extends Component {
 				iconId={this.state.conditions[0].weather[0].id}
 			/>			
 			:
-			``			
+			<div>
+				<p>Card sem informações</p>
+			</div>			
 			}
+
+			<div>
+				<button
+					className="button medium"
+				>
+					Mostrar Máx/Min
+				</button>
+			</div>
 
 	  	</div>
 	)

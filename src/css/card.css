@@ -1,0 +1,39 @@
+.card {
+	background-color: #2b235a;
+	border-radius: 12px;
+	color: white;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 40px auto;
+	padding: 8px;
+	text-align: left;
+	text-transform: uppercase;
+	width: 20%;
+}
+
+.card .column {
+	display: inline-block;
+}
+
+.column.big {
+	width: 70%;
+}
+
+.column.small {
+	width: 30%;
+}
+
+.card img {
+	display: block;
+	height: auto;
+	vertical-align: super;
+	width: 100%;
+}
+
+.card p {
+	margin: 6px 0;
+}
+.card i {
+	font-size: 26px;
+	line-height: 26px;
+}
