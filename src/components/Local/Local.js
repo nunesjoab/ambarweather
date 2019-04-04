@@ -26,26 +26,6 @@ export default class Local extends Component {
 		var weekday = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado']
 		return weekday[date.getDay()]
 	}
-/* 
-	componentDidMount() {
-		axios.get('data/2.5/forecast?id=' + this.props.id + '&APPID=' + APPID)
-		.then(response => {
-			console.log(response.data)
-			const weather = response.data.list.map((element, index) => {
-				return {
-					...element
-				}
-			})
-
-			const info = response.data.city
-
-			this.setState({
-				weather,
-				info
-			})
-		})
-	}
- */
 
   render() {
 	return (

@@ -3,9 +3,9 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-	if (action.type == 'CHECK') {
+	if (action.type === 'CHECK') {
 		return {
-			maxTemp: state.maxTemp + 1
+			maxTemp: state.maxTemp + action.temp
 		}
 	}
 	

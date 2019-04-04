@@ -39,7 +39,9 @@ class Screen extends Component {
 			this.setState({
 				conditions,
 				info,
-				local
+				local,
+				maxTemp: conditions[0].main.temp_max,
+				minTemp: conditions[0].main.temp_min
 			})
 		})
 	}
@@ -65,6 +67,7 @@ class Screen extends Component {
 				<button
 					className="button tiny"
 					onClick={() => this.getLocalProperties('3451234', 'Rio Claro')}
+					onMouseDown={this.props.checkTemperatures}
 				>
 					Rio Claro
 				</button>
@@ -72,6 +75,7 @@ class Screen extends Component {
 				<button
 					className="button tiny"
 					onClick={() => this.getLocalProperties('3449319', 'São Carlos')}
+					onMouseDown={this.props.checkTemperatures}
 				>
 					São Carlos
 				</button>
@@ -79,6 +83,7 @@ class Screen extends Component {
 				<button
 					className="button tiny"
 					onClick={() => this.getLocalProperties('3457509', 'Matão')}
+					onMouseDown={this.props.checkTemperatures}
 				>
 					Matão
 				</button>
@@ -106,7 +111,6 @@ class Screen extends Component {
 				<div>
 					<button
 						className={"button medium"}
-						onClick={this.props.checkTemperatures}
 					>
 						Mostrar Máx/Min
 					</button>
@@ -129,7 +133,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		checkTemperatures: () => dispatch({type: 'CHECK'})
+		checkTemperatures: () => dispatch({type: 'CHECK', temp: 10})
 	};
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Screen);
