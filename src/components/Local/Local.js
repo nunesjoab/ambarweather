@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+
+import '../../css/card.css'
+
 /* 
 import axios from '../../axios'
 
@@ -16,6 +19,12 @@ export default class Local extends Component {
 
 	convertKelvinToCelcius(temp) {
 		return (temp - 273.15).toFixed(0)
+	}
+
+	getWeekday() {
+		var date = new Date()
+		var weekday = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado']
+		return weekday[date.getDay()]
 	}
 /* 
 	componentDidMount() {
@@ -41,16 +50,27 @@ export default class Local extends Component {
   render() {
 	return (
 	  	<div className={"card"}>
-			<div className={"column big"}>
-				<p>{this.props.name}</p>
-				<p><i className={"wi wi-thermometer"}></i></p>
-				<p>{this.convertKelvinToCelcius(this.props.temp)}<i className={"wi wi-celsius"}></i></p>
-				<p><i className={"wi wi-direction-up"}></i>{this.convertKelvinToCelcius(this.props.maxTemp)}<i className={"wi wi-celsius"}></i></p>
-				<p><i className={"wi wi-direction-down"}></i>{this.convertKelvinToCelcius(this.props.minTemp)}<i className={"wi wi-celsius"}></i></p>
-			</div>
-			<div className={"column small"}>
+			<p className={"date"}>Hoje, {this.getWeekday()}</p>
+			<p className={"temperature"}>
+				<i className={"wi wi-thermometer"}></i>
+				{this.convertKelvinToCelcius(this.props.temp)}°
 				<img src={"http://openweathermap.org/img/w/" + this.props.icon + ".png"} alt="weather icon" />
-			</div>
+			</p>
+			<p className={"title"}>{this.props.name}, SP</p>
+			<p>
+				<span className={"max-temp"}>
+					<i className={"wi wi-thermometer"}></i>
+					{this.convertKelvinToCelcius(this.props.maxTemp)}°
+				</span>
+				<span className={"min-temp"}>
+					<i className={"wi wi-thermometer"}></i>
+					{this.convertKelvinToCelcius(this.props.minTemp)}°
+				</span>
+				<span>
+					<i className={"wi wi-humidity"}></i>
+					{this.props.humidity}
+				</span>
+			</p>
 	  	</div>
 	)
   }

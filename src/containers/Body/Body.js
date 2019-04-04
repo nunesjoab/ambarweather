@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import '../../css/buttons.css'
+
 import axios from '../../axios'
 
 import Local from '../../components/Local/Local'
@@ -20,7 +22,7 @@ export default class Screen extends Component {
 	getLocalProperties = (id, local) => {
 		axios.get('data/2.5/forecast?id=' + id + '&APPID=' + APPID)
 		.then(response => {
-			// console.log(response.data)
+			console.log(response.data)
 			const conditions = response.data.list.map((element, index) => {
 				return {
 					...element
@@ -50,7 +52,7 @@ export default class Screen extends Component {
 
    render() {
 	return (
-	  	<div>
+	  	<div class="body">
 			  
 			<button
 				className="button tiny"
@@ -82,13 +84,14 @@ export default class Screen extends Component {
 				temp={this.state.conditions[0].main.temp}
 				maxTemp={this.state.conditions[0].main.temp_max}
 				minTemp={this.state.conditions[0].main.temp_min}
+				humidity={this.state.conditions[0].main.humidity}
 				description={this.state.conditions[0].weather[0].description}
 				icon={this.state.conditions[0].weather[0].icon}
 				iconId={this.state.conditions[0].weather[0].id}
 			/>			
 			:
-			<div>
-				<p>Card sem informações</p>
+			<div className={"card no-info"}>
+				<i className={"wi wi-direction-up"}></i><p>Clique em uma das cidades acima</p>
 			</div>			
 			}
 

@@ -1,0 +1,15 @@
+.footer {
+	background-color: #e6e6ec;
+	padding: 20px;
+}
+
+.info {
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.footer i {
+	color: #31255a;
+	font-size: 36px;
+	margin-right: 8px;
+}

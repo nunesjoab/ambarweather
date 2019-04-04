@@ -1,39 +1,88 @@
+.body {
+	padding: 40px 0;
+}
+
 .card {
-	background-color: #2b235a;
+	background-color: #31255a;
 	border-radius: 12px;
 	color: white;
-	font-size: 22px;
-	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	letter-spacing: 1px;
 	margin: 40px auto;
-	padding: 8px;
-	text-align: left;
-	text-transform: uppercase;
+	padding: 12px 16px;
+	text-align: center;
 	width: 20%;
 }
+
+.no-info {
+	background-color: #e6e6ec;
+	border: 2px dashed white;
+	color: black;
+}
+
+.wi-direction-up {
+	animation: bounce 0.3s;
+	animation-direction: alternate;
+	animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+	animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 10px, 0); }
+}
+
 
 .card .column {
 	display: inline-block;
 }
 
-.column.big {
-	width: 70%;
-}
-
-.column.small {
-	width: 30%;
-}
-
-.card img {
-	display: block;
-	height: auto;
-	vertical-align: super;
-	width: 100%;
-}
-
 .card p {
 	margin: 6px 0;
 }
+
 .card i {
 	font-size: 26px;
 	line-height: 26px;
+	margin-right: 12px;
+}
+
+.card .title {
+	font-size: 22px;
+	font-style: italic;
+	margin-bottom: 42px;
+	text-align: center;
+}
+
+.card .date {
+	font-style: italic;
+	margin-bottom: 16px;
+	text-align: left;
+}
+
+.card .temperature {
+	font-size: 46px;
+}
+
+.temperature i {
+	font-size: 36px;
+	margin-bottom: 16px;
+}
+
+
+.temperature img {
+	vertical-align: middle;
+}
+
+.card span {
+	margin: 0 25px;
+}
+
+.max-temp i {
+	color: #f0341f;
+}
+
+.min-temp i {
+	color: #8fe0ff;
 }

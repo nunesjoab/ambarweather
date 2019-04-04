@@ -1,0 +1,22 @@
+.header {
+	background-color: #e6e6ec;
+	padding: 40px 0;
+}
+
+.header i {
+	color: #31255a;
+}
+
+.header .logo {
+	display: inline;
+	text-align: left;
+	font-size: 64px;
+	margin-right: 150px;
+}
+
+
+.header .slogan {
+	display: inline;
+	font-size: 22px;
+	font-weight: 700;
+}
