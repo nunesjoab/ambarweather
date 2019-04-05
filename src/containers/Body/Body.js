@@ -20,7 +20,7 @@ class Body extends Component {
 			conditions: null,
 			info: null,
 			maxTemp: 0,
-			minTemp: 0
+			minTemp: 1000
 		}
 	}
 
@@ -53,7 +53,7 @@ class Body extends Component {
 				<button
 					className="button tiny"
 					onClick={() => this.getLocalProperties('3451234', 'Rio Claro')}
-					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp)}
+					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
 				>
 					Rio Claro
 				</button>
@@ -61,7 +61,7 @@ class Body extends Component {
 				<button
 					className="button tiny"
 					onClick={() => this.getLocalProperties('3449319', 'São Carlos')}
-					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp)}
+					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
 				>
 					São Carlos
 				</button>
@@ -69,7 +69,7 @@ class Body extends Component {
 				<button
 					className="button tiny"
 					onClick={() => this.getLocalProperties('3457509', 'Matão')}
-					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp)}
+					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
 				>
 					Matão
 				</button>
@@ -97,13 +97,16 @@ class Body extends Component {
 				<div>
 					<button
 						className={"button medium"}
-						onClick={() => this.props.checkTemperatures(this.state.maxTemp)}
+						onClick={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
 					>
 						Mostrar Máx/Min
 					</button>
 
 					<CmpTemps
-						max={this.props.mxTemp}
+						maxTemp={this.props.mxTemp}
+						maxLocal={this.props.mxLocal}
+						minTemp={this.props.mnTemp}
+						minLocal={this.props.mnLocal}
 					/>
 				</div>
 
@@ -114,13 +117,17 @@ class Body extends Component {
 
 const mapStateToProps = state => {
 	return {
-		mxTemp: state.maxTemp
+		mxTemp: state.maxTemp,
+		mxLocal: state.maxLocal,
+		mnTemp: state.minTemp,
+		mnLocal: state.minLocal
 	};
 }
 
 const mapDispatchToProps = dispatch => {
 	return {
-		checkTemperatures: (max) => dispatch({type: 'CHECK', temp: max})
+		checkTemperatures: (mxTemp, mnTemp, local) => dispatch({type: 'CHECK', maxTemp: mxTemp, minTemp: mnTemp, local: local})
 	};
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Body);
