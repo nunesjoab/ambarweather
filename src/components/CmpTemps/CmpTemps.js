@@ -17,7 +17,7 @@ export default class CmpTemps extends Component {
 						{this.convertKelvinToCelcius(this.props.maxTemp)}° - {this.props.maxLocal}
 					</span>
 				</p>
-				<br />
+
 				<p>
 					<span className={"min-temp"}>
 						<i className={"wi wi-snowflake-cold"}></i>
