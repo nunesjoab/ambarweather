@@ -1,4 +1,5 @@
 .button {
+	background-color: #fbed63;
 	border: 0;
 	border-radius: 16px;
 	font-family: 'Raleway', sans-serif;
@@ -18,7 +19,6 @@
 }
 
 .button.tiny {
-	background-color: #fbed63;
 	border-bottom: 2px solid #f6e00d;
 	border-right: 2px solid #f6e00d;
 	font-size: 16px;
@@ -32,7 +32,6 @@
 }
 
 .button.medium {
-	background-color: #8fe0ff;
 	border-right: 2px solid #75b4e3;
 	border-bottom: 2px solid #75b4e3;
 	font-size: 16px;
@@ -41,6 +40,6 @@
 }
 
 .button.medium:focus {
-	background-color: #75b4e3;
+	background-color: white;
 }
 

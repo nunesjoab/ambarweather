@@ -4,7 +4,7 @@
 }
 
 .header i {
-	color: #31255a;
+	color: #4747b8;
 }
 
 .header .logo {
@@ -19,4 +19,8 @@
 	display: inline;
 	font-size: 22px;
 	font-weight: 700;
+}
+
+.slogan a {
+	color: #ffb303;
 }

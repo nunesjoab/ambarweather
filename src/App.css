@@ -1,5 +1,5 @@
 .App {
-	background-color: #bce3f2;
+	background: linear-gradient(to right, rgba(102,205,242,1) 0%, rgba(32,124,229,1) 100%);
 	font-family: 'Raleway', sans-serif;
 	min-height: 100vh;
 	text-align: center;

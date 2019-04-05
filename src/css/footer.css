@@ -6,10 +6,11 @@
 .info {
 	font-weight: 500;
 	font-size: 18px;
+	font-style: italic;
 }
 
 .footer i {
-	color: #31255a;
+	color: #4747b8;
 	font-size: 36px;
 	margin-right: 8px;
 }
