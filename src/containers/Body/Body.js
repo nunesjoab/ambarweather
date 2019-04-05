@@ -11,7 +11,7 @@ import CmpTemps from '../../components/CmpTemps/CmpTemps'
 
 const APPID = '887b78e46f46df567b343b367b888e91'
 
-class Screen extends Component {
+class Body extends Component {
 	constructor(props) {
 		super(props)
 
@@ -45,20 +45,6 @@ class Screen extends Component {
 			})
 		})
 	}
-	
-	/* 
-	setLocalAttributes = (id, name) => {
-		const local = {
-			'id' : id,
-			'name' : name
-		}
-
-		this.setState({
-			local
-		})
-	} */
-
-
 
    render() {
 		return (
@@ -67,7 +53,7 @@ class Screen extends Component {
 				<button
 					className="button tiny"
 					onClick={() => this.getLocalProperties('3451234', 'Rio Claro')}
-					onMouseDown={this.props.checkTemperatures}
+					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp)}
 				>
 					Rio Claro
 				</button>
@@ -75,7 +61,7 @@ class Screen extends Component {
 				<button
 					className="button tiny"
 					onClick={() => this.getLocalProperties('3449319', 'São Carlos')}
-					onMouseDown={this.props.checkTemperatures}
+					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp)}
 				>
 					São Carlos
 				</button>
@@ -83,7 +69,7 @@ class Screen extends Component {
 				<button
 					className="button tiny"
 					onClick={() => this.getLocalProperties('3457509', 'Matão')}
-					onMouseDown={this.props.checkTemperatures}
+					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp)}
 				>
 					Matão
 				</button>
@@ -111,6 +97,7 @@ class Screen extends Component {
 				<div>
 					<button
 						className={"button medium"}
+						onClick={() => this.props.checkTemperatures(this.state.maxTemp)}
 					>
 						Mostrar Máx/Min
 					</button>
@@ -133,7 +120,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		checkTemperatures: () => dispatch({type: 'CHECK', temp: 10})
+		checkTemperatures: (max) => dispatch({type: 'CHECK', temp: max})
 	};
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Screen);
+export default connect(mapStateToProps, mapDispatchToProps)(Body);
