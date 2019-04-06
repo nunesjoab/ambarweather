@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { convertKelvinToCelcius } from '../Utils/Utils'
+
 import '../../css/card.css'
 
 import Fade from 'react-reveal/Fade'
@@ -19,10 +21,6 @@ export default class Local extends Component {
 		}
 	}
 
-	convertKelvinToCelcius(temp) {
-		return (temp - 273.15).toFixed(0)
-	}
-
 	getWeekday() {
 		var date = new Date()
 		var weekday = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado']
@@ -36,18 +34,18 @@ export default class Local extends Component {
 				<p className={"date"}>Hoje, {this.getWeekday()}</p>
 				<p className={"temperature"}>
 					<i className={"wi wi-thermometer"}></i>
-					{this.convertKelvinToCelcius(this.props.temp)}°
+					{convertKelvinToCelcius(this.props.temp)}°
 					<img src={"http://openweathermap.org/img/w/" + this.props.icon + ".png"} alt="weather icon" />
 				</p>
 				<p className={"title"}>{this.props.name}, SP</p>
 				<p>
 					<span className={"max-temp"}>
 						<i className={"wi wi-thermometer"}></i>
-						{this.convertKelvinToCelcius(this.props.maxTemp)}°
+						{convertKelvinToCelcius(this.props.maxTemp)}°
 					</span>
 					<span className={"min-temp"}>
 						<i className={"wi wi-thermometer"}></i>
-						{this.convertKelvinToCelcius(this.props.minTemp)}°
+						{convertKelvinToCelcius(this.props.minTemp)}°
 					</span>
 					<span>
 						<i className={"wi wi-humidity"}></i>
