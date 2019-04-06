@@ -11,6 +11,7 @@ export default class CmpTemps extends Component {
 					<p>
 						<span className={"max-temp"}>
 							Max {convertKelvinToCelcius(this.props.maxTemp)}° - {this.props.maxLocal}
+							<i className={"wi wi-thermometer"}></i>
 							<i className={"wi wi-day-sunny"}></i>
 						</span>
 					</p>
@@ -18,6 +19,7 @@ export default class CmpTemps extends Component {
 					<p>
 						<span className={"min-temp"}>
 							Min {convertKelvinToCelcius(this.props.minTemp)}° - {this.props.minLocal}
+							<i className={"wi wi-thermometer"}></i>
 							<i className={"wi wi-snowflake-cold"}></i>
 						</span>
 					</p>

@@ -1,5 +1,5 @@
 .body {
-	padding: 40px 0;
+	padding: 40px 0 80px;
 }
 
 .card {
@@ -66,21 +66,19 @@
 }
 
 .final-card {
-	margin-bottom: 80px;
-	padding-bottom: 24px;
-	padding-top: 24px;
+	margin-bottom: 120px;
+	padding-top: 22px;
 	text-align: left;
 }
 
 .final-card i {
-	float: right;
+	float: left;
 }
 
 .temperature i {
 	font-size: 36px;
-	margin-bottom: 16px;
+	line-height: 42px;
 }
-
 
 .temperature img {
 	vertical-align: middle;
@@ -89,6 +87,10 @@
 .card span {
 	margin: 0 25px;
 }
+
+.final-card p {
+	margin-bottom: 22px;
+} 
 
 .max-temp i {
 	color: #f0341f;
