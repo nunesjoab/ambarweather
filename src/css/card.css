@@ -85,16 +85,12 @@
 }
 
 .card span {
-	margin: 0 25px;
+	margin: 0 12px;
 }
 
 .final-card p {
 	margin-bottom: 22px;
 } 
-
-.final-card span {
-	margin: 0;
-}
 
 .max-temp i {
 	color: #f0341f;

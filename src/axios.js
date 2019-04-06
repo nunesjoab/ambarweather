@@ -1,4 +1,5 @@
 import axios from 'axios'
+require('es6-promise').polyfill();
 
 const instance = axios.create({
     baseURL: 'http://api.openweathermap.org'
