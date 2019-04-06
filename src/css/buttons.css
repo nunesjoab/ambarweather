@@ -6,6 +6,20 @@
 	margin: 8px 32px;
 }
 
+a.button {
+	border-bottom: 2px solid #f6e00d;
+	border-right: 2px solid #f6e00d;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 16px;
+	text-decoration: none;
+}
+
+a.button:focus {
+	outline: none;
+}
+
 .button:hover {
 	cursor: pointer;
 }

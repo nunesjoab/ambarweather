@@ -20,7 +20,8 @@ class Body extends Component {
 			conditions: null,
 			info: null,
 			maxTemp: 0,
-			minTemp: 1000
+			minTemp: 1000,
+			showCmpTemp: false,
 		}
 	}
 
@@ -46,70 +47,97 @@ class Body extends Component {
 		})
 	}
 
+	showCmpTemp = () => {
+		this.setState((prevState) => {
+			return { showCmpTemp: !prevState.showCmpTemp }
+		})
+	}
+
    render() {
 		return (
 			<div className={"body"}>
-				
-				<button
-					className="button tiny"
-					onClick={() => this.getLocalProperties('3451234', 'Rio Claro')}
-					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
-				>
-					Rio Claro
-				</button>
-				
-				<button
-					className="button tiny"
-					onClick={() => this.getLocalProperties('3449319', 'São Carlos')}
-					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
-				>
-					São Carlos
-				</button>
-				
-				<button
-					className="button tiny"
-					onClick={() => this.getLocalProperties('3457509', 'Matão')}
-					onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
-				>
-					Matão
-				</button>
 
 				{
-				this.state.conditions ?
-				<Local
-					name={this.state.local}
-					id={this.state.info['id']}
-					date={this.state.conditions[0].dt_txt}
-					temp={this.state.conditions[0].main.temp}
-					maxTemp={this.state.conditions[0].main.temp_max}
-					minTemp={this.state.conditions[0].main.temp_min}
-					humidity={this.state.conditions[0].main.humidity}
-					description={this.state.conditions[0].weather[0].description}
-					icon={this.state.conditions[0].weather[0].icon}
-					iconId={this.state.conditions[0].weather[0].id}
-				/>			
-				:
-				<div className={"card no-info"}>
-					<i className={"wi wi-direction-up"}></i><p>Clique em uma das cidades acima</p>
-				</div>			
+					this.state.showCmpTemp ?
+						`` 
+					:
+						<div>
+							<button
+								className="button tiny"
+								onClick={() => this.getLocalProperties('3451234', 'Rio Claro')}
+								onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
+							>
+								Rio Claro
+							</button>
+
+							<button
+								className="button tiny"
+								onClick={() => this.getLocalProperties('3449319', 'São Carlos')}
+								onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
+							>
+								São Carlos
+							</button>
+
+							<button
+								className="button tiny"
+								onClick={() => this.getLocalProperties('3457509', 'Matão')}
+								onMouseUp={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
+							>
+								Matão
+							</button>
+
+							{
+								this.state.conditions ?
+									<Local
+										name={this.state.local}
+										id={this.state.info['id']}
+										date={this.state.conditions[0].dt_txt}
+										temp={this.state.conditions[0].main.temp}
+										maxTemp={this.state.conditions[0].main.temp_max}
+										minTemp={this.state.conditions[0].main.temp_min}
+										humidity={this.state.conditions[0].main.humidity}
+										description={this.state.conditions[0].weather[0].description}
+										icon={this.state.conditions[0].weather[0].icon}
+										iconId={this.state.conditions[0].weather[0].id}
+									/>
+									:
+									<div className={"card no-info"}>
+										<i className={"wi wi-direction-up"}></i><p>Clique em uma das cidades acima</p>
+									</div>
+							}
+
+							<div>
+								{
+									this.state.local ?
+										<button
+											className={"button medium"}
+											onMouseDown={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
+											onClick={this.showCmpTemp}
+											>
+											Mostrar Máx/Min
+										</button>
+								:
+										``
+								}
+
+							</div>
+
+						</div>
 				}
 
-				<div>
-					<button
-						className={"button medium"}
-						onClick={() => this.props.checkTemperatures(this.state.maxTemp, this.state.minTemp, this.state.local)}
-					>
-						Mostrar Máx/Min
-					</button>
+				{
+					this.state.showCmpTemp ?
 
-					<CmpTemps
-						maxTemp={this.props.mxTemp}
-						maxLocal={this.props.mxLocal}
-						minTemp={this.props.mnTemp}
-						minLocal={this.props.mnLocal}
-					/>
-				</div>
+						<CmpTemps
+							maxTemp={this.props.mxTemp}
+							maxLocal={this.props.mxLocal}
+							minTemp={this.props.mnTemp}
+							minLocal={this.props.mnLocal}
+						/>
 
+						:
+						``
+				}
 			</div>
 		)
   	}
